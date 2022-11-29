@@ -6,6 +6,11 @@ const form = document.getElementById("form");
 const birthdate = document.getElementById("birthdate");
 const tournament = document.getElementById("quantity");
 
+const locations = document.getElementById("locations");
+const checkboxInput = document.querySelectorAll("#locations .checkbox-input");
+
+const checkbox1 = document.getElementById("checkbox1");
+
 //regex
 const emailRegex =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -80,6 +85,27 @@ function checkTournament() {
   }
 }
 
+function checkboX() {
+  if (checkbox1.checked === true) {
+    checkbox1.parentElement.setAttribute("data-error-visible", "false");
+    return true;
+  } else {
+    locations.setAttribute("data-error-visible", "true");
+    return false;
+  }
+}
+
+function checkLocation() {
+  locations.setAttribute("data-error-visible", "true");
+  for (let i = 0; i < checkboxInput.length; i++) {
+    if (checkboxInput[i].checked) {
+      locations.setAttribute("data-error-visible", "false");
+      return true;
+    }
+  }
+  return false;
+}
+
 ////field valid
 function fieldValidation(element, method, event) {
   element.addEventListener(event, method);
@@ -90,6 +116,8 @@ fieldValidation(lastname, checkLastname, "focusout");
 fieldValidation(email, checkEmail, "focusout");
 fieldValidation(birthdate, checkBirthdate, "focusout");
 fieldValidation(tournament, checkTournament, "focusout");
+fieldValidation(locations, checkLocation, "change");
+fieldValidation(checkbox1, checkboX, "change");
 
 function allFieldValidation() {
   checkFirstname();
@@ -97,6 +125,8 @@ function allFieldValidation() {
   checkEmail();
   checkBirthdate();
   checkTournament();
+  checkLocation();
+  checkboX();
 }
 
 function validate() {
@@ -105,8 +135,11 @@ function validate() {
     checkLastname() &&
     checkEmail() &&
     checkBirthdate() &&
-    checkTournament() === true
+    checkTournament() &&
+    checkboX() &&
+    checkLocation() === true
   ) {
+    console.log("test");
     return true;
   }
   return false;
@@ -116,6 +149,7 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (validate() === true) {
     showThanksSubmit();
+    console.log("test2");
   } else {
     allFieldValidation();
   }
