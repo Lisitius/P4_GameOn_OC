@@ -115,7 +115,7 @@
               </div>
               <div
                 class="formData"
-                data-error="Veuillez écrire un nombre de tournoi valide."
+                data-error="Veuillez écrire un nombre de tournoi."
                 data-error-visible="false"
               >
                 <label
@@ -134,7 +134,12 @@
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
-              <div class="formData">
+              <div
+                class="formData"
+                data-error="Veuillez sélectionnez une ville."
+                data-error-visible="false"
+                id="locations"
+              >
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -203,7 +208,11 @@
                 >
               </div>
 
-              <div class="formData">
+              <div
+                class="formData"
+                data-error="Veuillez vérifier que vous acceptez les termes et conditions"
+                data-error-visible="false"
+              >
                 <input
                   class="checkbox-input"
                   type="checkbox"
