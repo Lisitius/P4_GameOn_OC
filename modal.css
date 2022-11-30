@@ -30,12 +30,11 @@ p {
 }
 
 img {
-  padding-right: 1rem;
+  padding: 1rem;
 }
 
 .topnav {
   overflow: hidden;
-  /* margin: 3.5%; */
   margin: 3.5% 0px 3.5% 100px;
 }
 .header-logo {
@@ -77,6 +76,7 @@ img {
 
 .topnav .icon {
   display: none;
+  color: #ff0000;
 }
 
 main {
@@ -389,20 +389,17 @@ input[data-error]::after {
 }
 
 .hero-section {
-  max-height: 657px;
-  max-width: 1239px;
-  margin-right: 60px;
+  width: 100%;
+  height: 700px;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
-  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
 }
 
 .hero-content {
   padding: 51px 67px;
-  grid-column: span 6;
+  grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
@@ -434,15 +431,18 @@ input[data-error]::after {
   margin-top: 57px;
   padding: 0;
 }
+
 .btn-signup {
   outline: none;
+  text-transform: none;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
   margin-top: 59px;
 }
+
 .hero-img {
-  grid-column: span 10;
+  grid-column: span 8;
 }
 .hero-img img {
   width: 100%;
@@ -546,31 +546,6 @@ input[data-error]::after {
 }
 
 /* Media Queries */
-@media screen and (max-width: 768px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
 
 @media screen and (max-width: 540px) {
   .topnav a {
@@ -579,16 +554,84 @@ input[data-error]::after {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: 15px;
+  }
+  .hero-section {
+    padding-right: 80px;
+  }
+  .hero-content {
+    width: 100%;
+  }
+  .hero-headline {
+    width: 100%;
+  }
+  .hero-text {
+    width: 100%;
+    font-size: 0.8rem !important;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
+  .main {
+    margin: 0;
+  }
+
+  .topnav {
+    margin: 5px 0 5px 5px;
+  }
+
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav a.active {
+    display: none;
+  }
+
+  .topnav.responsive {
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    color: red;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive .main-navbar {
+    margin-right: 30px;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .topnav.responsive a.active {
+    display: none;
+  }
+
   .hero-section {
     display: block;
     box-shadow: unset;
+    height: auto;
+    padding-right: 80px;
   }
+
+  .header-logo img {
+    width: 150px;
+  }
+
   .hero-content {
+    max-width: 600px;
     background: #fff;
     color: #000;
     padding: 20px;
@@ -598,30 +641,49 @@ input[data-error]::after {
   }
   .hero-content .btn-signup {
     display: none;
+    margin: auto;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2rem;
     white-space: normal;
+    margin: 10px 0 10px 0;
+    /* text-align: center; */
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    margin: 10px 0 10px 0;
+    font-size: 1rem;
+    /* text-align: center; */
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    display: block;
   }
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
+
+  .hero-img .btn-signup {
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+
+  footer {
+    width: 80%;
+    margin: auto;
+  }
+
   .copyrights {
     margin-top: 50px;
     text-align: center;
   }
 }
-
 @keyframes modalopen {
   from {
     opacity: 0;
