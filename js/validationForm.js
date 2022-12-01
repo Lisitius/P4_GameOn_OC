@@ -90,7 +90,7 @@ function checkboX() {
     checkbox1.parentElement.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    locations.setAttribute("data-error-visible", "true");
+    checkbox1.parentElement.setAttribute("data-error-visible", "true");
     return false;
   }
 }
