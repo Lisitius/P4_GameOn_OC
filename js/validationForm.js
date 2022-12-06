@@ -67,7 +67,7 @@ function checkEmail() {
 function checkBirthdate() {
   //check if birthdate have a value
   const date = new Date(birthdate.value);
-  if (date === "Invalid Date") {
+  if (date == "Invalid Date") {
     birthdate.parentElement.setAttribute("data-error-visible", "true");
     birthdate.style.border = "2px solid #ff0000";
     return false;
